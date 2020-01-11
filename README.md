@@ -11,7 +11,7 @@ Source: https://akrabat.com/developing-wordpress-sites-with-docker/
 * `README.md` – Every project needs a README!
 * `docker-compose.yml` – Development orchestration config file.
 
-## `/app/wp-config.php`
+## File `/app/wp-config.php`
 
 ```php
 // ...
@@ -38,13 +38,14 @@ define('WP_DEBUG_LOG', (bool) ($ENV['WP_DEBUG'] ?? false));
 
 ## Hostname
 
-Set up a host name pointing at `127.0.0.1` in your `/etc/hosts`, for example, `dev.live-site.name`.
+Set up a host name pointing at `127.0.0.1` in your `/etc/hosts`, for example, `dev.project1.com`.
 
 ```
 127.0.0.1 dev.project1.com
 ```
 
 ## Start up
+
 Start up with:
 
 ```bash
