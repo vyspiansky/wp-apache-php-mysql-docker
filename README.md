@@ -68,6 +68,20 @@ To delete the `db_data` volume:
 docker-compose down -v
 ```
 
+## Exporting the database
+
+To export the database into a MySQL dump file from the db container:
+
+```bash
+bin/export-db
+```
+
+## Restoring a database dump
+
+```bash
+bin/restore-db live-dump.sql
+```
+
 ## Keep in mind
 
 On Mac the magic `host.docker.internal` domain name is available, so that XDebug works. However this hostname isn’t available on Linux at least yet, so you’ll have to find a workaround if you’re on Linux.
