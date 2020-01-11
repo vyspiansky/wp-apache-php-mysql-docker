@@ -1,4 +1,6 @@
-# WordPress site (Apache/PHP and MySQL) with Docker
+# WordPress website (Apache/PHP and MySQL) with Docker
+
+A WordPress based website and local Docker-based development environment. 
 
 Source: https://akrabat.com/developing-wordpress-sites-with-docker/
 
