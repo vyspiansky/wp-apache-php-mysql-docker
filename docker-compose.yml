@@ -1,0 +1,42 @@
+version: '3'
+ 
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - 127.0.0.1:3306:3306
+    command: [
+        '--default_authentication_plugin=mysql_native_password',
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci'
+    ]
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: formula
+      MYSQL_ROOT_PASSWORD: pass1234
+ 
+  wp:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-wp
+    ports:
+      - 127.0.0.1:80:80
+    volumes:
+      - ./docker/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./app:/var/www/html
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      DB_NAME: formula
+      DB_USER: root
+      DB_PASSWORD: pass1234
+      DB_HOST: db
+      WP_DEBUG: 1
+      LIVE_URL: http://formula.co.ua
+      DEV_URL: http://formula.lh
+ 
+volumes:
+  db_data: # store database into a volume so that we can pause the containers
