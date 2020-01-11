@@ -60,7 +60,7 @@ To rebuild the containers:
 docker-compose up --force-recreate --build
 ```
 
-To delete the db_data volume:
+To delete the `db_data` volume:
 
 ```bash
 docker-compose down -v
